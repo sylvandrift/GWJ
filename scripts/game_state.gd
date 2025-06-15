@@ -1,6 +1,8 @@
 class_name GameState
 extends Resource
 
+#alnwdlaiwndawdnawoln
+
 const STATE_NAME : String = "GameState"
 const FILE_PATH = "res://scripts/game_state.gd"
 
