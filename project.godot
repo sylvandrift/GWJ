@@ -22,14 +22,6 @@ SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loa
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 
-[display]
-
-window/size/viewport_width=160
-window/size/viewport_height=160
-window/size/window_width_override=640
-window/size/window_height_override=640
-window/stretch/mode="canvas_items"
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")

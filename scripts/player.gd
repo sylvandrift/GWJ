@@ -13,3 +13,10 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("move") == false:
 		return
+		
+	var id_path = astar_grid.get_id_path(
+		tile_map.local_to_map(global_position),
+		tile_map.local_to_map(get_global_mouse_position())
+	)
+	
+	print(id_path)
