@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ce05ara283hub"]
+
+[ext_resource type="FontFile" uid="uid://b1librkxearb4" path="res://fonts/PixelOperator8.ttf" id="1_shoco"]
+
+[resource]
+font = ExtResource("1_shoco")
