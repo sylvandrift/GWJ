@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c53mkfnn88lx3"]
+[gd_scene load_steps=13 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_y0mvw"]
@@ -20,6 +20,7 @@ texture = ExtResource("1_y0mvw")
 9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -61,26 +62,38 @@ texture = ExtResource("1_y0mvw")
 8:4/0 = 0
 9:4/0 = 0
 0:5/0 = 0
+0:5/0/custom_data_0 = true
 1:5/0 = 0
+1:5/0/custom_data_0 = true
 2:5/0 = 0
+2:5/0/custom_data_0 = true
 3:5/0 = 0
 4:5/0 = 0
 5:5/0 = 0
+5:5/0/custom_data_0 = true
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 0:6/0 = 0
+0:6/0/custom_data_0 = true
 1:6/0 = 0
+1:6/0/custom_data_0 = true
 2:6/0 = 0
+2:6/0/custom_data_0 = true
 3:6/0 = 0
+3:6/0/custom_data_0 = true
 4:6/0 = 0
+4:6/0/custom_data_0 = true
 5:6/0 = 0
+5:6/0/custom_data_0 = true
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_80niw"]
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_w6i3l")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80niw"]
@@ -153,12 +166,12 @@ layer_0/tile_data = PackedInt32Array(-196611, 65536, 1, -131075, 65536, 1, -6553
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("2_w6i3l")
 
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("AtlasTexture_80niw")
+
 [node name="Character light" type="PointLight2D" parent="Player"]
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.13
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = SubResource("AtlasTexture_80niw")
 
 [node name="Pop light" type="Node2D" parent="."]
 position = Vector2(137, 85)
