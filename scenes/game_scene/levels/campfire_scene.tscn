@@ -1,0 +1,397 @@
+[gd_scene load_steps=24 format=4 uid="uid://lgkcdshwpa8y"]
+
+[ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_7c4mf"]
+[ext_resource type="Texture2D" uid="uid://064achh7g4ot" path="res://assets/sprout_lands_assets/Objects/Basic_Grass_Biom_things.png" id="2_oqptt"]
+[ext_resource type="Texture2D" uid="uid://cmjb0bwpkqqnu" path="res://assets/SimpleCharacter/Girl-Sheet.png" id="3_ak4gy"]
+[ext_resource type="Texture2D" uid="uid://u731cdpnstu0" path="res://assets/CampFireFinished.png" id="4_1hg4s"]
+[ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="5_0px6l"]
+[ext_resource type="Script" uid="uid://dq3v8on6xqyep" path="res://scenes/objects/upgradebox.gd" id="6_oqptt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24nf0"]
+texture = ExtResource("1_7c4mf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+0:5/0/custom_data_0 = true
+1:5/0 = 0
+1:5/0/custom_data_0 = true
+2:5/0 = 0
+2:5/0/custom_data_0 = true
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+5:5/0/custom_data_0 = true
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+0:6/0 = 0
+0:6/0/custom_data_0 = true
+1:6/0 = 0
+1:6/0/custom_data_0 = true
+2:6/0 = 0
+2:6/0/custom_data_0 = true
+3:6/0 = 0
+3:6/0/custom_data_0 = true
+4:6/0 = 0
+4:6/0/custom_data_0 = true
+5:6/0 = 0
+5:6/0/custom_data_0 = true
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_623lg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryp6h"]
+texture = SubResource("CompressedTexture2D_623lg")
+1:0/0 = 0
+4:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dh30"]
+texture = ExtResource("2_oqptt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_62iok"]
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_24nf0")
+sources/1 = SubResource("TileSetAtlasSource_ryp6h")
+sources/2 = SubResource("TileSetAtlasSource_1dh30")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfo4v"]
+texture = ExtResource("2_oqptt")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l8qvy"]
+sources/0 = SubResource("TileSetAtlasSource_tfo4v")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05tlu"]
+atlas = ExtResource("4_1hg4s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6df1l"]
+atlas = ExtResource("4_1hg4s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3gju"]
+atlas = ExtResource("4_1hg4s")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjmk3"]
+atlas = ExtResource("4_1hg4s")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7flsn"]
+atlas = ExtResource("4_1hg4s")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8q7uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05tlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6df1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3gju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjmk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7flsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gaf5"]
+atlas = ExtResource("3_ak4gy")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="Animation" id="Animation_7c4mf"]
+resource_name = "To campfire"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 85), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upgrade buttons/HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.13333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oqptt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 85)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upgrade buttons/HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ak4gy"]
+_data = {
+&"RESET": SubResource("Animation_oqptt"),
+&"To campfire": SubResource("Animation_7c4mf")
+}
+
+[node name="Campfire Scene" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_62iok")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196611, 65536, 1, -131075, 65536, 1, -65539, 65536, 1, -3, 0, 5, 65533, 65536, 1, -196610, 65536, 1, -131074, 327680, 5, -65538, 65536, 1, -2, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, -196609, 65536, 1, -131073, 65536, 1, -65537, 65536, 1, -1, 65536, 1, 65535, 65536, 1, 131071, 65536, 1, -262144, 65536, 1, -196608, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 65536, 65536, 1, -262143, 65536, 1, -196607, 262144, 5, -131071, 65536, 1, -65535, 65536, 1, 1, 65536, 1, 65537, 65536, 1, -262142, 65536, 1, -196606, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 65538, 65536, 1, -262149, 65536, 0, -196613, 65536, 1, -131077, 196608, 5, -65541, 65536, 1, -5, 65536, 1, 65531, 262144, 5, 131067, 65536, 1, 196603, 65536, 1, 262139, 65536, 1, 327675, 65536, 1, 262148, 65536, 1, -327676, 65536, 0, -262148, 65536, 0, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, 327676, 65536, 1, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 196612, 65536, 1, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 0, 5, -262140, 65536, 1, -196612, 65536, 5, -131076, 65536, 1, -65540, 65536, 5, -4, 65536, 1, 65532, 65536, 1, 131068, 65536, 1, 196604, 65536, 1, 262140, 65536, 1, 262142, 65536, 1, 262143, 0, 5, 196608, 65536, 1, 196609, 65536, 1, 196610, 196608, 5, 196611, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, -262141, 65536, 5, -196605, 65536, 1, -131069, 65536, 1, -65533, 327680, 5, 3, 65536, 1, 65539, 0, 5, -262153, 65536, 0, -262152, 65536, 0, -262151, 65536, 0, -262150, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 65536, 0, -262136, 65536, 1, -196600, 65536, 1, -131064, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 262151, 65536, 1, 262150, 65536, 1, 262149, 65536, 1, 327674, 65536, 1, 327673, 65536, 1, 327672, 65536, 1, 327671, 65536, 1, 262135, 65536, 1, 196599, 65536, 1, 131063, 65536, 1, 65527, 65536, 1, -9, 65536, 1, -65545, 65536, 1, -131081, 65536, 1, -196617, 65536, 1, -196616, 65536, 1, -196615, 0, 5, -196614, 65536, 1, -131080, 65536, 1, -131079, 327680, 5, -131078, 65536, 1, -65544, 65536, 1, -8, 65536, 1, 65529, 65536, 1, 65530, 65536, 1, 262138, 262144, 5, 65528, 65536, 1, 131064, 65536, 1, 196600, 65536, 1, 262136, 65536, 1, -65543, 0, 5, -7, 65536, 1, 131065, 0, 5, 196601, 65536, 1, 262137, 65536, 1, -65542, 65536, 1, -6, 65536, 1, 131066, 65536, 1, 196602, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 327680, 5, 196613, 65536, 1, -262138, 65536, 1, -196602, 327680, 5, -131066, 65536, 5, -65530, 65536, 1, 6, 196608, 5, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 5, -262137, 65536, 1, -196601, 65536, 1, -131065, 65536, 1, -65529, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 0, 5, -262154, 0, 0, 327670, 65536, 1, 262153, 65536, 1, -327671, 131072, 0, -262135, 131072, 1, -196599, 131072, 1, -131063, 131072, 1, -65527, 131072, 1, 9, 131072, 1, 65545, 131072, 1, 131081, 131072, 1, 196617, 131072, 1, -196618, 0, 1, -131082, 0, 1, -65546, 0, 1, -10, 0, 1, 65526, 0, 1, 131062, 0, 1, 196598, 0, 1, 262134, 0, 1, 393214, 65536, 1, 458750, 0, 2, 393215, 65536, 1, 458751, 65536, 2, 327680, 65536, 1, 393216, 131072, 2, 327677, 65536, 1, 262141, 65536, 1, 196605, 327680, 5, 131069, 65536, 1, 393206, 65536, 1, 393207, 65536, 1, 393208, 65536, 1, 393209, 65536, 1, 393210, 65536, 1, 393211, 65536, 1, 393212, 65536, 1, 393213, 65536, 1, 327681, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 327687, 65536, 1, 327688, 65536, 1, 327689, 65536, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAD8/wMAAAACAAAAAAD8/wQAAAACAAEAAAD7/wMAAAABAAAAAAD7/wQAAAABAAEAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAEAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAEAAAD5/wMAAAAAAAAAAAD5/wQAAAAAAAEAAAD2//v/AAAAAAAAAAD2//z/AAAAAAEAAAD2//3/AAAAAAAAAAD2//7/AAAAAAEAAAD2////AAAAAAAAAAD2/wAAAAAAAAEAAAD2/wEAAAAAAAAAAAD2/wIAAAAAAAEAAAD2/wMAAAAAAAAAAAD2/wQAAAAAAAEAAAD3//v/AAAAAAAAAAD3//z/AAAAAAEAAAD3//3/AAAAAAAAAAD3//7/AAAAAAEAAAD3////AAAAAAAAAAD3/wAAAAAAAAEAAAD3/wEAAAAAAAAAAAD3/wIAAAAAAAEAAAD3/wMAAAAAAAAAAAD3/wQAAAAAAAEAAAD4//v/AAAAAAAAAAD4//z/AAAAAAEAAAD4//3/AAAAAAAAAAD4//7/AAAAAAEAAAD4////AAAAAAAAAAD4/wAAAAAAAAEAAAD4/wEAAAABAAAAAAD4/wIAAAABAAEAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAEAAAD5//v/AAAAAAAAAAD5//z/AAAAAAEAAAD5//3/AAABAAAAAAD5//7/AAABAAEAAAD5////AAAAAAAAAAD5/wAAAAAAAAEAAAD5/wEAAAACAAAAAAD5/wIAAAACAAEAAAD6//v/AAAAAAAAAAD6//z/AAAAAAEAAAD6//3/AAACAAAAAAD6//7/AAACAAEAAAD6////AAAAAAAAAAD6/wAAAAAAAAEAAAD7//v/AAAAAAAAAAD7//z/AAAAAAEAAAD7//3/AAAAAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAAAAAD7/wAAAAAAAAEAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAEAAAD8//v/AAABAAAAAAD8//z/AAABAAEAAAD8//3/AAAAAAAAAAD8//7/AAAAAAEAAAD8////AAAAAAAAAAD8/wAAAAAAAAEAAAD8/wEAAAABAAAAAAD8/wIAAAABAAEAAAD9//v/AAACAAAAAAD9//z/AAACAAEAAAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAAAAAD9/wAAAAAAAAEAAAD9/wEAAAACAAAAAAD9/wIAAAACAAEAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAEAAAD+//v/AAAAAAAAAAD+//z/AAAAAAEAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD///v/AAAAAAAAAAD///z/AAAAAAEAAAD///3/AAACAAAAAAD///7/AAACAAEAAAABAPv/AAAAAAAAAAABAPz/AAAAAAEAAAABAP3/AAAAAAAAAAABAP7/AAAAAAEAAAABAP//AAAAAAAAAAABAAAAAAAAAAEAAAABAAEAAAAAAAAAAAABAAIAAAAAAAEAAAABAAMAAAABAAAAAAABAAQAAAABAAEAAAACAPv/AAAAAAAAAAACAPz/AAAAAAEAAAACAP3/AAAAAAAAAAACAP7/AAAAAAEAAAACAP//AAABAAAAAAACAAAAAAABAAEAAAACAAEAAAAAAAAAAAACAAIAAAAAAAEAAAACAAMAAAACAAAAAAACAAQAAAACAAEAAAADAPv/AAAAAAAAAAADAPz/AAAAAAEAAAADAP3/AAAAAAAAAAADAP7/AAAAAAEAAAADAP//AAACAAAAAAADAAAAAAACAAEAAAADAAEAAAAAAAAAAAADAAIAAAAAAAEAAAADAAMAAAAAAAAAAAADAAQAAAAAAAEAAAAEAPv/AAAAAAAAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAEAAAAEAAEAAAABAAAAAAAEAAIAAAABAAEAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAEAAAAFAPv/AAAAAAAAAAAFAPz/AAAAAAEAAAAFAP3/AAABAAAAAAAFAP7/AAABAAEAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAEAAAAFAAEAAAACAAAAAAAFAAIAAAACAAEAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAEAAAAGAPv/AAAAAAAAAAAGAPz/AAAAAAEAAAAGAP3/AAACAAAAAAAGAP7/AAACAAEAAAAGAP//AAABAAAAAAAGAAAAAAABAAEAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAEAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAEAAAAHAPv/AAAAAAAAAAAHAPz/AAAAAAEAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAEAAAAHAP//AAACAAAAAAAHAAAAAAACAAEAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAEAAAAHAAMAAAABAAAAAAAHAAQAAAABAAEAAAAIAPv/AAABAAAAAAAIAPz/AAABAAEAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAEAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAEAAAAIAAMAAAACAAAAAAAIAAQAAAACAAEAAAAJAPv/AAACAAAAAAAJAPz/AAACAAEAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAEAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAEAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAEAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAEAAAD2/wUAAAAAAAAAAAD3/wUAAAABAAAAAAD4/wUAAAACAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAABAAAAAAD7/wUAAAACAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAABAAAAAAADAAUAAAACAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAABAAAAAAAGAAUAAAACAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_l8qvy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 2)
+offset = Vector2(0, 10)
+zoom = Vector2(3.8, 3.8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, -1)
+scale = Vector2(0.578125, 0.515625)
+sprite_frames = SubResource("SpriteFrames_8q7uw")
+autoplay = "default"
+frame_progress = 0.7246
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1, -1)
+texture = SubResource("AtlasTexture_4gaf5")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.051971, 0.051971, 0.051971, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-4, 1)
+texture = ExtResource("5_0px6l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ak4gy")
+}
+autoplay = "To campfire"
+
+[node name="Upgrade buttons" type="Node" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -135.0
+offset_top = -20.0
+offset_right = 137.0
+offset_bottom = 11.0
+alignment = 1
+script = ExtResource("6_oqptt")
+
+[node name="Button" type="Button" parent="Upgrade buttons/HBoxContainer"]
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="Button2" type="Button" parent="Upgrade buttons/HBoxContainer"]
+layout_mode = 2
+text = "Upgrade 2"
+
+[node name="Button3" type="Button" parent="Upgrade buttons/HBoxContainer"]
+layout_mode = 2
+text = "Upgrade 3"
+
+[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button2" to="Upgrade buttons/HBoxContainer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button3" to="Upgrade buttons/HBoxContainer" method="_on_button_3_pressed"]
