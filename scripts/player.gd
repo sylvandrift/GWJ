@@ -16,7 +16,7 @@ func _ready() -> void:
 	for x in tile_map.get_used_rect().size.x:
 		for y in tile_map.get_used_rect().size.y:
 			var tile_position = Vector2i(
-				x + tile_map.get_used_rect().position.x, 
+				x + tile_map.get_used_rect().position.x,
 				y + tile_map.get_used_rect().position.y
 			)
 			
