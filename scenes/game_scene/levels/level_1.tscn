@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://c53mkfnn88lx3"]
+[gd_scene load_steps=18 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_y0mvw"]
 [ext_resource type="Script" uid="uid://b2hsd31i3badr" path="res://scripts/player.gd" id="2_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://ohcy5po2sw1j" path="res://assets/sprout_lands_assets/Characters/Basic Charakter Spritesheet.png" id="3_623lg"]
 [ext_resource type="Script" uid="uid://o4agdu65ggli" path="res://scenes/objects/pop light.gd" id="5_623lg"]
+[ext_resource type="Script" uid="uid://bsnvlbbpf3p01" path="res://scripts/enemy.gd" id="6_pmyid"]
+[ext_resource type="Texture2D" uid="uid://b86x2rl7ysbek" path="res://assets/sprout_lands_assets/Characters/Free Cow Sprites.png" id="7_bsimd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6i3l"]
 texture = ExtResource("1_y0mvw")
@@ -20,6 +22,7 @@ texture = ExtResource("1_y0mvw")
 9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -61,27 +64,60 @@ texture = ExtResource("1_y0mvw")
 8:4/0 = 0
 9:4/0 = 0
 0:5/0 = 0
+0:5/0/custom_data_0 = true
 1:5/0 = 0
+1:5/0/custom_data_0 = true
 2:5/0 = 0
+2:5/0/custom_data_0 = true
 3:5/0 = 0
 4:5/0 = 0
 5:5/0 = 0
+5:5/0/custom_data_0 = true
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 0:6/0 = 0
+0:6/0/custom_data_0 = true
 1:6/0 = 0
+1:6/0/custom_data_0 = true
 2:6/0 = 0
+2:6/0/custom_data_0 = true
 3:6/0 = 0
+3:6/0/custom_data_0 = true
 4:6/0 = 0
+4:6/0/custom_data_0 = true
 5:6/0 = 0
+5:6/0/custom_data_0 = true
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_623lg"]
+load_path = "res://.godot/imported/D_Idle.png-446c41026affe8c9dfe9bb3c04b8ea9a.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sycfm"]
+texture = SubResource("CompressedTexture2D_623lg")
+1:0/0 = 0
+4:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_80niw"]
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_w6i3l")
+sources/1 = SubResource("TileSetAtlasSource_sycfm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80niw"]
 atlas = ExtResource("3_623lg")
@@ -128,6 +164,10 @@ _data = {
 &"RESET": SubResource("Animation_xhitn")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmabn"]
+atlas = ExtResource("7_bsimd")
+region = Rect2(0, 32, 32, 32)
+
 [node name="ScoutsLevel1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -151,14 +191,15 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-196611, 65536, 1, -131075, 65536, 1, -65539, 65536, 1, -3, 0, 5, 65533, 65536, 1, 131069, 65536, 1, -196610, 65536, 1, -131074, 327680, 5, -65538, 65536, 1, -2, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, -196609, 65536, 1, -131073, 65536, 1, -65537, 65536, 1, -1, 65536, 1, 65535, 65536, 1, 131071, 65536, 1, -262144, 65536, 1, -196608, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 65536, 65536, 1, -262143, 65536, 1, -196607, 262144, 5, -131071, 65536, 1, -65535, 65536, 1, 1, 65536, 1, 65537, 65536, 1, -262142, 65536, 1, -196606, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 65538, 65536, 1, -262149, 65536, 0, -196613, 65536, 1, -131077, 196608, 5, -65541, 65536, 1, -5, 65536, 1, 65531, 262144, 5, 131067, 65536, 1, 196603, 65536, 1, 262139, 65536, 1, 327675, 65536, 2, 262148, 65536, 2, -327676, 65536, 0, -262148, 65536, 0, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, 327676, 65536, 2, 327677, 65536, 2, 327678, 65536, 2, 327679, 65536, 2, 262144, 65536, 2, 262145, 65536, 2, 262146, 65536, 2, 262147, 65536, 2, 196612, 65536, 1, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 0, 5, -262140, 65536, 1, -196612, 65536, 5, -131076, 65536, 1, -65540, 65536, 5, -4, 65536, 1, 65532, 65536, 1, 131068, 65536, 1, 196604, 65536, 1, 262140, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 262143, 0, 5, 196608, 65536, 1, 196609, 65536, 1, 196610, 196608, 5, 196611, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, 196605, 327680, 5, -262141, 65536, 5, -196605, 65536, 1, -131069, 65536, 1, -65533, 327680, 5, 3, 65536, 1, 65539, 0, 5, -262153, 65536, 0, -262152, 65536, 0, -262151, 65536, 0, -262150, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 65536, 0, -262136, 65536, 1, -196600, 65536, 1, -131064, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 2, 262151, 65536, 2, 262150, 65536, 2, 262149, 65536, 2, 327674, 65536, 2, 327673, 65536, 2, 327672, 65536, 2, 327671, 65536, 2, 262135, 65536, 1, 196599, 65536, 1, 131063, 65536, 1, 65527, 65536, 1, -9, 65536, 1, -65545, 65536, 1, -131081, 65536, 1, -196617, 65536, 1, -196616, 65536, 1, -196615, 0, 5, -196614, 65536, 1, -131080, 65536, 1, -131079, 327680, 5, -131078, 65536, 1, -65544, 65536, 1, -8, 65536, 1, 65529, 65536, 1, 65530, 65536, 1, 262138, 262144, 5, 65528, 65536, 1, 131064, 65536, 1, 196600, 65536, 1, 262136, 65536, 1, -65543, 0, 5, -7, 65536, 1, 131065, 0, 5, 196601, 65536, 1, 262137, 65536, 1, -65542, 65536, 1, -6, 65536, 1, 131066, 65536, 1, 196602, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 327680, 5, 196613, 65536, 1, -262138, 65536, 1, -196602, 327680, 5, -131066, 65536, 5, -65530, 65536, 1, 6, 196608, 5, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 5, -262137, 65536, 1, -196601, 65536, 1, -131065, 65536, 1, -65529, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 0, 5, -262154, 0, 0, 327670, 0, 2, 262153, 131072, 2, -327671, 131072, 0, -262135, 131072, 1, -196599, 131072, 1, -131063, 131072, 1, -65527, 131072, 1, 9, 131072, 1, 65545, 131072, 1, 131081, 131072, 1, 196617, 131072, 1, -196618, 0, 1, -131082, 0, 1, -65546, 0, 1, -10, 0, 1, 65526, 0, 1, 131062, 0, 1, 196598, 0, 1, 262134, 0, 1)
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(56, -47)
 script = ExtResource("2_w6i3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("AtlasTexture_80niw")
 
 [node name="Character light" type="PointLight2D" parent="Player"]
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.13
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = SubResource("AtlasTexture_80niw")
 
 [node name="Pop light" type="Node2D" parent="."]
 position = Vector2(137, 85)
@@ -189,6 +230,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_w0vcw")
 }
 autoplay = "Fade"
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(-136, 59)
+script = ExtResource("6_pmyid")
+
+[node name="Timer" type="Timer" parent="Enemy"]
+wait_time = 0.058
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = SubResource("AtlasTexture_fmabn")
 
 [connection signal="pressed" from="Pop light/Button" to="Pop light/Button" method="_on_pressed"]
 [connection signal="toggled" from="Pop light/Button" to="Pop light/Button" method="_on_toggled"]
