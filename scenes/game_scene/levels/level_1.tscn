@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=26 format=4 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_y0mvw"]
 [ext_resource type="Script" uid="uid://b2hsd31i3badr" path="res://scripts/player.gd" id="2_w6i3l"]
+[ext_resource type="Texture2D" uid="uid://064achh7g4ot" path="res://assets/sprout_lands_assets/Objects/Basic_Grass_Biom_things.png" id="3_fmabn"]
 [ext_resource type="Texture2D" uid="uid://cmjb0bwpkqqnu" path="res://assets/SimpleCharacter/Girl-Sheet.png" id="4_pmyid"]
 [ext_resource type="Script" uid="uid://o4agdu65ggli" path="res://scenes/objects/pop light.gd" id="5_623lg"]
 [ext_resource type="Script" uid="uid://bsnvlbbpf3p01" path="res://scripts/enemy.gd" id="6_pmyid"]
 [ext_resource type="Texture2D" uid="uid://b86x2rl7ysbek" path="res://assets/sprout_lands_assets/Characters/Free Cow Sprites.png" id="7_bsimd"]
+[ext_resource type="Script" uid="uid://ddd5a2tspa6mc" path="res://scripts/exit.gd" id="8_bsimd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6i3l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmyid"]
 texture = ExtResource("1_y0mvw")
 0:0/0 = 0
 1:0/0 = 0
@@ -95,7 +97,7 @@ texture = ExtResource("1_y0mvw")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_623lg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sycfm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsimd"]
 texture = SubResource("CompressedTexture2D_623lg")
 1:0/0 = 0
 4:0/0 = 0
@@ -112,42 +114,129 @@ texture = SubResource("CompressedTexture2D_623lg")
 10:1/0 = 0
 11:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85t3v"]
+texture = ExtResource("3_fmabn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_80niw"]
 custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_w6i3l")
-sources/1 = SubResource("TileSetAtlasSource_sycfm")
+sources/0 = SubResource("TileSetAtlasSource_pmyid")
+sources/1 = SubResource("TileSetAtlasSource_bsimd")
+sources/2 = SubResource("TileSetAtlasSource_85t3v")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmabn"]
+texture = ExtResource("3_fmabn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_85t3v"]
+sources/0 = SubResource("TileSetAtlasSource_fmabn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmyid"]
 atlas = ExtResource("4_pmyid")
 region = Rect2(0, 0, 24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmabn"]
+size = Vector2(6, 14)
+
 [sub_resource type="Theme" id="Theme_623lg"]
 Button/font_sizes/font_size = 7
 Button/fonts/font = null
 
-[sub_resource type="Animation" id="Animation_7hvgk"]
-resource_name = "Fade"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PointLight2D:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.966667, 1.99, 2.99),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_xhitn"]
+[sub_resource type="Animation" id="Animation_bsimd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/path = NodePath(".:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -157,15 +246,37 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0vcw"]
+[sub_resource type="Animation" id="Animation_pmyid"]
+resource_name = "light"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99, 1.99, 2.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.75, 0.75, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmabn"]
 _data = {
-&"Fade": SubResource("Animation_7hvgk"),
-&"RESET": SubResource("Animation_xhitn")
+&"RESET": SubResource("Animation_bsimd"),
+&"light": SubResource("Animation_pmyid")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmabn"]
 atlas = ExtResource("7_bsimd")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmyid"]
+size = Vector2(32, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85t3v"]
+size = Vector2(38, 21)
 
 [node name="ScoutsLevel1" type="Node2D"]
 
@@ -181,20 +292,35 @@ texture = ExtResource("1_w6i3l")
 texture_scale = 0.13
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+color = Color(0.0605303, 0.0605303, 0.0605303, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_80niw")
 format = 2
-layer_0/tile_data = PackedInt32Array(-196611, 65536, 1, -131075, 65536, 1, -65539, 65536, 1, -3, 0, 5, 65533, 65536, 1, 131069, 65536, 1, -196610, 65536, 1, -131074, 327680, 5, -65538, 65536, 1, -2, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, -196609, 65536, 1, -131073, 65536, 1, -65537, 65536, 1, -1, 65536, 1, 65535, 65536, 1, 131071, 65536, 1, -262144, 65536, 1, -196608, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 65536, 65536, 1, -262143, 65536, 1, -196607, 262144, 5, -131071, 65536, 1, -65535, 65536, 1, 1, 65536, 1, 65537, 65536, 1, -262142, 65536, 1, -196606, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 65538, 65536, 1, -262149, 65536, 0, -196613, 65536, 1, -131077, 196608, 5, -65541, 65536, 1, -5, 65536, 1, 65531, 262144, 5, 131067, 65536, 1, 196603, 65536, 1, 262139, 65536, 1, 327675, 65536, 2, 262148, 65536, 2, -327676, 65536, 0, -262148, 65536, 0, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, 327676, 65536, 2, 327677, 65536, 2, 327678, 65536, 2, 327679, 65536, 2, 262144, 65536, 2, 262145, 65536, 2, 262146, 65536, 2, 262147, 65536, 2, 196612, 65536, 1, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 0, 5, -262140, 65536, 1, -196612, 65536, 5, -131076, 65536, 1, -65540, 65536, 5, -4, 65536, 1, 65532, 65536, 1, 131068, 65536, 1, 196604, 65536, 1, 262140, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 262143, 0, 5, 196608, 65536, 1, 196609, 65536, 1, 196610, 196608, 5, 196611, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, 196605, 327680, 5, -262141, 65536, 5, -196605, 65536, 1, -131069, 65536, 1, -65533, 327680, 5, 3, 65536, 1, 65539, 0, 5, -262153, 65536, 0, -262152, 65536, 0, -262151, 65536, 0, -262150, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 65536, 0, -262136, 65536, 1, -196600, 65536, 1, -131064, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 2, 262151, 65536, 2, 262150, 65536, 2, 262149, 65536, 2, 327674, 65536, 2, 327673, 65536, 2, 327672, 65536, 2, 327671, 65536, 2, 262135, 65536, 1, 196599, 65536, 1, 131063, 65536, 1, 65527, 65536, 1, -9, 65536, 1, -65545, 65536, 1, -131081, 65536, 1, -196617, 65536, 1, -196616, 65536, 1, -196615, 0, 5, -196614, 65536, 1, -131080, 65536, 1, -131079, 327680, 5, -131078, 65536, 1, -65544, 65536, 1, -8, 65536, 1, 65529, 65536, 1, 65530, 65536, 1, 262138, 262144, 5, 65528, 65536, 1, 131064, 65536, 1, 196600, 65536, 1, 262136, 65536, 1, -65543, 0, 5, -7, 65536, 1, 131065, 0, 5, 196601, 65536, 1, 262137, 65536, 1, -65542, 65536, 1, -6, 65536, 1, 131066, 65536, 1, 196602, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 327680, 5, 196613, 65536, 1, -262138, 65536, 1, -196602, 327680, 5, -131066, 65536, 5, -65530, 65536, 1, 6, 196608, 5, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 5, -262137, 65536, 1, -196601, 65536, 1, -131065, 65536, 1, -65529, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 0, 5, -262154, 0, 0, 327670, 0, 2, 262153, 131072, 2, -327671, 131072, 0, -262135, 131072, 1, -196599, 131072, 1, -131063, 131072, 1, -65527, 131072, 1, 9, 131072, 1, 65545, 131072, 1, 131081, 131072, 1, 196617, 131072, 1, -196618, 0, 1, -131082, 0, 1, -65546, 0, 1, -10, 0, 1, 65526, 0, 1, 131062, 0, 1, 196598, 0, 1, 262134, 0, 1)
+layer_0/tile_data = PackedInt32Array(-196611, 65536, 1, -131075, 65536, 1, -65539, 65536, 1, -3, 0, 5, 65533, 65536, 1, 131069, 65536, 1, -196610, 65536, 1, -131074, 327680, 5, -65538, 65536, 1, -2, 65536, 1, 65534, 65536, 1, 131070, 65536, 1, -196609, 65536, 1, -131073, 65536, 1, -65537, 65536, 1, -1, 65536, 1, 65535, 65536, 1, 131071, 65536, 1, -262144, 65536, 1, -196608, 65536, 1, -131072, 65536, 1, -65536, 65536, 1, 0, 65536, 1, 65536, 65536, 1, -262143, 65536, 1, -196607, 262144, 5, -131071, 65536, 1, -65535, 65536, 1, 1, 65536, 1, 65537, 65536, 1, -262142, 65536, 1, -196606, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 65538, 65536, 1, -262149, 65536, 0, -196613, 65536, 1, -131077, 196608, 5, -65541, 65536, 1, -5, 65536, 1, 65531, 262144, 5, 131067, 65536, 1, 196603, 65536, 1, 262139, 65536, 1, 327675, 65536, 2, 262148, 65536, 2, -327676, 65536, 0, -262148, 65536, 0, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, 327676, 65536, 2, 327677, 65536, 2, 327678, 65536, 1, 327679, 65536, 1, 262144, 65536, 1, 262145, 65536, 2, 262146, 65536, 2, 262147, 65536, 2, 196612, 65536, 1, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 0, 5, -262140, 65536, 1, -196612, 65536, 5, -131076, 65536, 1, -65540, 65536, 5, -4, 65536, 1, 65532, 65536, 1, 131068, 65536, 1, 196604, 65536, 1, 262140, 65536, 1, 262141, 65536, 1, 262142, 65536, 1, 262143, 0, 5, 196608, 65536, 1, 196609, 65536, 1, 196610, 196608, 5, 196611, 65536, 1, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, 196605, 327680, 5, -262141, 65536, 5, -196605, 65536, 1, -131069, 65536, 1, -65533, 327680, 5, 3, 65536, 1, 65539, 0, 5, -262153, 65536, 0, -262152, 65536, 0, -262151, 65536, 0, -262150, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 65536, 0, -262136, 65536, 1, -196600, 65536, 1, -131064, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 2, 262151, 65536, 2, 262150, 65536, 2, 262149, 65536, 2, 327674, 65536, 2, 327673, 65536, 2, 327672, 65536, 2, 327671, 65536, 2, 262135, 65536, 1, 196599, 65536, 1, 131063, 65536, 1, 65527, 65536, 1, -9, 65536, 1, -65545, 65536, 1, -131081, 65536, 1, -196617, 65536, 1, -196616, 65536, 1, -196615, 0, 5, -196614, 65536, 1, -131080, 65536, 1, -131079, 327680, 5, -131078, 65536, 1, -65544, 65536, 1, -8, 65536, 1, 65529, 65536, 1, 65530, 65536, 1, 262138, 262144, 5, 65528, 65536, 1, 131064, 65536, 1, 196600, 65536, 1, 262136, 65536, 1, -65543, 0, 5, -7, 65536, 1, 131065, 0, 5, 196601, 65536, 1, 262137, 65536, 1, -65542, 65536, 1, -6, 65536, 1, 131066, 65536, 1, 196602, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 327680, 5, 196613, 65536, 1, -262138, 65536, 1, -196602, 327680, 5, -131066, 65536, 5, -65530, 65536, 1, 6, 196608, 5, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 5, -262137, 65536, 1, -196601, 65536, 1, -131065, 65536, 1, -65529, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 0, 5, -262154, 0, 0, 327670, 0, 2, 262153, 131072, 2, -327671, 131072, 0, -262135, 131072, 1, -196599, 131072, 1, -131063, 131072, 1, -65527, 131072, 1, 9, 131072, 1, 65545, 131072, 1, 131081, 131072, 1, 196617, 131072, 1, -196618, 0, 1, -131082, 0, 1, -65546, 0, 1, -10, 0, 1, 65526, 0, 1, 131062, 0, 1, 196598, 0, 1, 262134, 0, 1, 393214, 0, 1, 458750, 0, 2, 393215, 65536, 1, 458751, 65536, 2, 327680, 131072, 1, 393216, 131072, 2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAD2//3/AAAAAAAAAAD2//7/AAAAAAEAAAD2////AAAAAAAAAAD2/wAAAAAAAAEAAAD3//3/AAAAAAAAAAD3//7/AAAAAAEAAAD3////AAAAAAAAAAD3/wAAAAAAAAEAAAD4//3/AAAAAAAAAAD4//7/AAAAAAEAAAD4////AAAAAAAAAAD4/wAAAAAAAAEAAAD5//3/AAABAAAAAAD5//7/AAABAAEAAAD5////AAAAAAAAAAD5/wAAAAAAAAEAAAD6//3/AAACAAAAAAD6//7/AAACAAEAAAD6////AAAAAAAAAAD6/wAAAAAAAAEAAAD7//3/AAAAAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAAAAAD7/wAAAAAAAAEAAAD8//3/AAAAAAAAAAD8//7/AAAAAAEAAAD8////AAAAAAAAAAD8/wAAAAAAAAEAAAD9//3/AAAAAAAAAAD9//7/AAAAAAEAAAD9////AAAAAAAAAAD9/wAAAAAAAAEAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD///3/AAACAAAAAAD///7/AAACAAEAAAABAP3/AAAAAAAAAAABAP7/AAAAAAEAAAABAP//AAAAAAAAAAABAAAAAAAAAAEAAAACAP3/AAAAAAAAAAACAP7/AAAAAAEAAAACAP//AAABAAAAAAACAAAAAAABAAEAAAADAP3/AAAAAAAAAAADAP7/AAAAAAEAAAADAP//AAACAAAAAAADAAAAAAACAAEAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAEAAAAFAP3/AAABAAAAAAAFAP7/AAABAAEAAAAGAP3/AAACAAAAAAAGAP7/AAACAAEAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAEAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAEAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAEAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAEAAAD5//v/AAAAAAAAAAD5//z/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_85t3v")
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(104, -40)
+light_mask = 16
+visibility_layer = 16
+position = Vector2(0, 60)
 script = ExtResource("2_w6i3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1, -1)
 texture = SubResource("AtlasTexture_pmyid")
+
+[node name="Area2D" type="Area2D" parent="Player/Sprite2D"]
+position = Vector2(-1, -84)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Sprite2D/Area2D"]
+position = Vector2(1, 86)
+shape = SubResource("RectangleShape2D_fmabn")
 
 [node name="Character light" type="PointLight2D" parent="Player"]
 texture = ExtResource("1_w6i3l")
@@ -212,6 +338,12 @@ theme = SubResource("Theme_623lg")
 text = "Pop Light"
 script = ExtResource("5_623lg")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pop light/Button"]
+root_node = NodePath("../../PointLight2D")
+libraries = {
+&"": SubResource("AnimationLibrary_fmabn")
+}
+
 [node name="Buttonlight" type="PointLight2D" parent="Pop light"]
 position = Vector2(-7, 2)
 scale = Vector2(1.25, 0.520833)
@@ -220,15 +352,11 @@ texture = ExtResource("1_w6i3l")
 texture_scale = 0.15
 
 [node name="PointLight2D" type="PointLight2D" parent="Pop light"]
+position = Vector2(-157, -43)
 energy = 0.0
 texture = ExtResource("1_w6i3l")
+offset = Vector2(-30, -5)
 texture_scale = 0.13
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pop light"]
-libraries = {
-&"": SubResource("AnimationLibrary_w0vcw")
-}
-autoplay = "Fade"
 
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(-48, 32)
@@ -239,7 +367,25 @@ wait_time = 0.058
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(-2, 1)
 texture = SubResource("AtlasTexture_fmabn")
 
+[node name="Area2D" type="Area2D" parent="Enemy"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(-2, 6.5)
+shape = SubResource("RectangleShape2D_pmyid")
+
+[node name="Exit" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_bsimd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(0, -67.5)
+shape = SubResource("RectangleShape2D_85t3v")
+
 [connection signal="pressed" from="Pop light/Button" to="Pop light/Button" method="_on_pressed"]
-[connection signal="toggled" from="Pop light/Button" to="Pop light/Button" method="_on_toggled"]
+[connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]

@@ -1,26 +1,18 @@
 extends Button
 
-var button = false
-var mouse_pos:Vector2
+var ready_to_spawn = false
+@onready var light = $"../PointLight2D"
 
-
-func _on_pressed():
-	button = true
-	print("button pressed")
+func _ready() -> void:
+	pass
 	
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		mouse_pos = get_viewport().get_mouse_position()
-		print("Mouse Click/Unclick at: ", event.position)
-	
-		
-func _process(delta: float):
-	if button==true: 
-		if InputEventMouseButton:
-			print("will spawn light")
-			button = false
-		
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and ready_to_spawn:
+		# Spawn animation at mouse position
+		light.position = get_local_mouse_position() # Set position
+		print(light.position)
+		$AnimationPlayer.play("light")
+		ready_to_spawn = false # Reset the flag
 
-
-func _on_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+func _on_pressed() -> void:
+	ready_to_spawn = true
