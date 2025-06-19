@@ -6,7 +6,7 @@ var current_id_path: Array[Vector2i]
 var target_position: Vector2
 var is_moving: bool
 var last_player_tile_position: Vector2i
-
+var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +15,7 @@ func _ready() -> void:
 	astar_grid.cell_size = Vector2(16, 16)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
+	$Sprite2D.visible=false
 	
 	for x in tile_map.get_used_rect().size.x:
 		for y in tile_map.get_used_rect().size.y:
@@ -51,3 +52,15 @@ func _physics_process(delta):
 			global_position = target_pos
 			current_id_path.pop_front()
  
+
+#Making it so when poplight hitbox touches monster hitbox it will become 
+#visible for set time and then invisible again
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("monster found!")
+	$Sprite2D.visible=true
+	$"Sprite2D/visibility timer".start()
+
+
+
+func _on_timer_timeout() -> void:
+	$Sprite2D.visible=false
