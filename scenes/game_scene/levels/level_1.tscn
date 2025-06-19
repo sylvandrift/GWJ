@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=30 format=4 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_y0mvw"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://064achh7g4ot" path="res://assets/sprout_lands_assets/Objects/Basic_Grass_Biom_things.png" id="3_fmabn"]
 [ext_resource type="Texture2D" uid="uid://cmjb0bwpkqqnu" path="res://assets/SimpleCharacter/Girl-Sheet.png" id="4_pmyid"]
 [ext_resource type="Script" uid="uid://o4agdu65ggli" path="res://scenes/objects/pop light.gd" id="5_623lg"]
+[ext_resource type="FontFile" uid="uid://vffatt26hvmn" path="res://fonts/PixelOperator8-Bold.ttf" id="6_8avtb"]
 [ext_resource type="Script" uid="uid://bsnvlbbpf3p01" path="res://scripts/enemy.gd" id="6_pmyid"]
+[ext_resource type="Script" uid="uid://c6ph8tos6h2ck" path="res://scripts/throw stick.gd" id="7_85t3v"]
 [ext_resource type="Texture2D" uid="uid://b86x2rl7ysbek" path="res://assets/sprout_lands_assets/Characters/Free Cow Sprites.png" id="7_bsimd"]
 [ext_resource type="Script" uid="uid://ddd5a2tspa6mc" path="res://scripts/exit.gd" id="8_bsimd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmyid"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85t3v"]
 texture = ExtResource("1_y0mvw")
 0:0/0 = 0
 1:0/0 = 0
@@ -97,7 +99,7 @@ texture = ExtResource("1_y0mvw")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_623lg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsimd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8avtb"]
 texture = SubResource("CompressedTexture2D_623lg")
 1:0/0 = 0
 4:0/0 = 0
@@ -114,7 +116,7 @@ texture = SubResource("CompressedTexture2D_623lg")
 10:1/0 = 0
 11:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85t3v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ua84b"]
 texture = ExtResource("3_fmabn")
 0:0/0 = 0
 1:0/0 = 0
@@ -165,9 +167,9 @@ texture = ExtResource("3_fmabn")
 [sub_resource type="TileSet" id="TileSet_80niw"]
 custom_data_layer_0/name = "walkable"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_pmyid")
-sources/1 = SubResource("TileSetAtlasSource_bsimd")
-sources/2 = SubResource("TileSetAtlasSource_85t3v")
+sources/0 = SubResource("TileSetAtlasSource_85t3v")
+sources/1 = SubResource("TileSetAtlasSource_8avtb")
+sources/2 = SubResource("TileSetAtlasSource_ua84b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmabn"]
 texture = ExtResource("3_fmabn")
@@ -227,9 +229,12 @@ region = Rect2(0, 0, 24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmabn"]
 size = Vector2(6, 14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_85t3v"]
+radius = 16.0312
+
 [sub_resource type="Theme" id="Theme_623lg"]
-Button/font_sizes/font_size = 7
-Button/fonts/font = null
+Button/font_sizes/font_size = 6
+Button/fonts/font = ExtResource("6_8avtb")
 
 [sub_resource type="Animation" id="Animation_bsimd"]
 length = 0.001
@@ -267,6 +272,9 @@ _data = {
 &"RESET": SubResource("Animation_bsimd"),
 &"light": SubResource("Animation_pmyid")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmabn"]
+radius = 16.0312
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmabn"]
 atlas = ExtResource("7_bsimd")
@@ -306,34 +314,41 @@ tile_set = SubResource("TileSet_85t3v")
 [node name="Player" type="Node2D" parent="."]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(0, 60)
 script = ExtResource("2_w6i3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(1, -1)
 texture = SubResource("AtlasTexture_pmyid")
 
 [node name="Area2D" type="Area2D" parent="Player/Sprite2D"]
-position = Vector2(-1, -84)
+position = Vector2(2, -9)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Sprite2D/Area2D"]
-position = Vector2(1, 86)
+position = Vector2(-5, 13)
 shape = SubResource("RectangleShape2D_fmabn")
 
 [node name="Character light" type="PointLight2D" parent="Player"]
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.13
 
+[node name="Area2D" type="Area2D" parent="Player/Character light"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Character light/Area2D"]
+shape = SubResource("CircleShape2D_85t3v")
+
 [node name="Pop light" type="Node2D" parent="."]
+light_mask = 25
+visibility_layer = 25
 position = Vector2(137, 85)
 
 [node name="Button" type="Button" parent="Pop light"]
-offset_left = -29.0
-offset_top = -7.0
-offset_right = 14.0
-offset_bottom = 12.0
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 17.0
+offset_bottom = 11.0
 theme = SubResource("Theme_623lg")
 text = "Pop Light"
 script = ExtResource("5_623lg")
@@ -345,20 +360,51 @@ libraries = {
 }
 
 [node name="Buttonlight" type="PointLight2D" parent="Pop light"]
-position = Vector2(-7, 2)
-scale = Vector2(1.25, 0.520833)
+position = Vector2(-14, 2)
+scale = Vector2(1.61458, 0.520833)
 energy = 3.44
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.15
 
 [node name="PointLight2D" type="PointLight2D" parent="Pop light"]
-position = Vector2(-157, -43)
+position = Vector2(-68, -38)
 energy = 0.0
 texture = ExtResource("1_w6i3l")
 offset = Vector2(-30, -5)
 texture_scale = 0.13
 
+[node name="Area2D" type="Area2D" parent="Pop light/PointLight2D"]
+position = Vector2(-30, -5)
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pop light/PointLight2D/Area2D"]
+shape = SubResource("CircleShape2D_fmabn")
+
+[node name="Woodstick" type="Node2D" parent="."]
+light_mask = 25
+visibility_layer = 25
+position = Vector2(-137, 85)
+
+[node name="Button" type="Button" parent="Woodstick"]
+offset_left = -12.0
+offset_top = -7.0
+offset_right = 45.0
+offset_bottom = 12.0
+theme = SubResource("Theme_623lg")
+text = "Stick"
+script = ExtResource("7_85t3v")
+
+[node name="Buttonlight" type="PointLight2D" parent="Woodstick"]
+position = Vector2(15, 2)
+scale = Vector2(1.5625, 0.520833)
+energy = 3.44
+texture = ExtResource("1_w6i3l")
+texture_scale = 0.15
+
 [node name="Enemy" type="Node2D" parent="."]
+light_mask = 8
+visibility_layer = 8
 position = Vector2(-48, 32)
 script = ExtResource("6_pmyid")
 
@@ -370,12 +416,16 @@ autostart = true
 position = Vector2(-2, 1)
 texture = SubResource("AtlasTexture_fmabn")
 
+[node name="visibility timer" type="Timer" parent="Enemy/Sprite2D"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Area2D" type="Area2D" parent="Enemy"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 56
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
-position = Vector2(-2, 6.5)
+position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_pmyid")
 
 [node name="Exit" type="Area2D" parent="."]
@@ -387,5 +437,9 @@ script = ExtResource("8_bsimd")
 position = Vector2(0, -67.5)
 shape = SubResource("RectangleShape2D_85t3v")
 
+[connection signal="area_entered" from="Player/Sprite2D/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="Pop light/Button" to="Pop light/Button" method="_on_pressed"]
+[connection signal="pressed" from="Woodstick/Button" to="Woodstick/Button" method="_on_pressed"]
+[connection signal="timeout" from="Enemy/Sprite2D/visibility timer" to="Enemy" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
