@@ -273,7 +273,7 @@ atlas = ExtResource("7_bsimd")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmyid"]
-size = Vector2(32, 25)
+size = Vector2(32, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85t3v"]
 size = Vector2(38, 21)
@@ -292,7 +292,7 @@ texture = ExtResource("1_w6i3l")
 texture_scale = 0.13
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_80niw")
@@ -359,12 +359,8 @@ offset = Vector2(-30, -5)
 texture_scale = 0.13
 
 [node name="Enemy" type="Node2D" parent="."]
-position = Vector2(-48, 32)
+position = Vector2(-80, -64)
 script = ExtResource("6_pmyid")
-
-[node name="Timer" type="Timer" parent="Enemy"]
-wait_time = 0.058
-autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 position = Vector2(-2, 1)
@@ -375,7 +371,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
-position = Vector2(-2, 6.5)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_pmyid")
 
 [node name="Exit" type="Area2D" parent="."]
