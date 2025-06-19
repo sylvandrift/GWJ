@@ -11,13 +11,18 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Signalbus.emit_signal("upgrade1")
+	Signalbus.emit_signal("Multi_shot")
+	$"../../AnimationPlayer".play("Exit level")
 	queue_free()
 
 
 func _on_button_2_pressed() -> void:
+	Signalbus.emit_signal("More_Ammo")
+	$"../../AnimationPlayer".play("Exit level")
 	queue_free()
 
 
 func _on_button_3_pressed() -> void:
+	Signalbus.emit_signal("Bigger_light")
+	$"../../AnimationPlayer".play("Exit level")
 	queue_free()

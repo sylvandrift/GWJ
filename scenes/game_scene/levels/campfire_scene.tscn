@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://lgkcdshwpa8y"]
+[gd_scene load_steps=27 format=4 uid="uid://lgkcdshwpa8y"]
 
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_7c4mf"]
 [ext_resource type="Texture2D" uid="uid://064achh7g4ot" path="res://assets/sprout_lands_assets/Objects/Basic_Grass_Biom_things.png" id="2_oqptt"]
@@ -166,7 +166,7 @@ sources/0 = SubResource("TileSetAtlasSource_24nf0")
 sources/1 = SubResource("TileSetAtlasSource_ryp6h")
 sources/2 = SubResource("TileSetAtlasSource_1dh30")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfo4v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqptt"]
 texture = ExtResource("2_oqptt")
 0:0/0 = 0
 1:0/0 = 0
@@ -215,7 +215,7 @@ texture = ExtResource("2_oqptt")
 8:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_l8qvy"]
-sources/0 = SubResource("TileSetAtlasSource_tfo4v")
+sources/0 = SubResource("TileSetAtlasSource_oqptt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05tlu"]
 atlas = ExtResource("4_1hg4s")
@@ -264,9 +264,11 @@ animations = [{
 atlas = ExtResource("3_ak4gy")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="Animation" id="Animation_7c4mf"]
-resource_name = "To campfire"
-length = 3.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqptt"]
+
+[sub_resource type="Animation" id="Animation_ak4gy"]
+resource_name = "Exit level"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -274,22 +276,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.633333, 1.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 85), Vector2(0, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Upgrade buttons/HBoxContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.13333, 2.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(0, 20), Vector2(10, 3), Vector2(9, -79)]
 }
 
 [sub_resource type="Animation" id="Animation_oqptt"]
@@ -319,11 +309,42 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7c4mf"]
+resource_name = "To campfire"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 85), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upgrade buttons/HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.13333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak4gy"]
 _data = {
+&"Exit level": SubResource("Animation_ak4gy"),
 &"RESET": SubResource("Animation_oqptt"),
 &"To campfire": SubResource("Animation_7c4mf")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak4gy"]
 
 [node name="Campfire Scene" type="Node2D"]
 
@@ -346,21 +367,28 @@ position = Vector2(-6, -1)
 scale = Vector2(0.578125, 0.515625)
 sprite_frames = SubResource("SpriteFrames_8q7uw")
 autoplay = "default"
-frame_progress = 0.7246
-
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(0, 85)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(1, -1)
-texture = SubResource("AtlasTexture_4gaf5")
+frame_progress = 0.393027
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.051971, 0.051971, 0.051971, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-4, 1)
+position = Vector2(-2.00001, 1)
+scale = Vector2(1.15625, 1)
 texture = ExtResource("5_0px6l")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0, 1)
+texture = SubResource("AtlasTexture_4gaf5")
+
+[node name="Area2D" type="Area2D" parent="Player/Sprite2D"]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_oqptt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -372,26 +400,33 @@ autoplay = "To campfire"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrade buttons"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -135.0
-offset_top = -20.0
-offset_right = 137.0
-offset_bottom = 11.0
+offset_left = -152.0
+offset_top = -17.0
+offset_right = 147.0
+offset_bottom = 14.0
 alignment = 1
 script = ExtResource("6_oqptt")
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Upgrade buttons/HBoxContainer"]
 layout_mode = 2
-text = "Upgrade 1"
+text = "Multi-shot"
 
 [node name="Button2" type="Button" parent="Upgrade buttons/HBoxContainer"]
 layout_mode = 2
-text = "Upgrade 2"
+text = "More Ammo"
 
 [node name="Button3" type="Button" parent="Upgrade buttons/HBoxContainer"]
 layout_mode = 2
-text = "Upgrade 3"
+text = "Bigger light"
 
-[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer/Button" method="_on_pressed"]
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(8, -73)
+shape = SubResource("RectangleShape2D_ak4gy")
+
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button2" to="Upgrade buttons/HBoxContainer" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button3" to="Upgrade buttons/HBoxContainer" method="_on_button_3_pressed"]
