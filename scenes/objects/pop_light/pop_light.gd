@@ -1,8 +1,9 @@
 extends Button
 
-var ready_to_spawn = false
+#Imports
 @onready var light = $"../PointLight2D"
 
+#Funcs
 func _ready() -> void:
 	pass
 	
@@ -15,4 +16,4 @@ func _unhandled_input(event):
 		ready_to_spawn = false # Reset the flag
 
 func _on_pressed() -> void:
-	ready_to_spawn = true
+	SignalBus.emit_signal("tool_selected", SignalBus.Tool.LIGHT)
