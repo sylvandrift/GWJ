@@ -1,0 +1,12 @@
+extends Node
+
+# Tracks the currently selected tool from SignalBus
+var current_tool: SignalBus.Tool = SignalBus.Tool.NONE
+
+func _ready() -> void:
+	# Connect to the global signal when a tool is selected
+	SignalBus.connect("tool_selected", Callable(self, "_on_tool_selected"))
+
+func _on_tool_selected(tool: SignalBus.Tool) -> void:
+	current_tool = tool
+	print("ToolManager: current tool set to", tool)

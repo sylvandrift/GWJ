@@ -26,7 +26,7 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_position)
 	
 func _input(event):
-	if event.is_action_pressed("move") == false:
+	if event.is_action_pressed("click") == false:
 		return
 		
 	var id_path

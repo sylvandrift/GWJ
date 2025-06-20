@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc3d4bgh12lqm"]
+[gd_scene load_steps=4 format=3 uid="uid://cdohj2yhpb2cx"]
 
-[ext_resource type="Texture2D" uid="uid://dbomgu2qff032" path="res://assets/—Pngtree—wooden stick_5614245.png" id="1_msbih"]
-[ext_resource type="Script" uid="uid://b58otcwucx341" path="res://scenes/objects/stick.gd" id="2_f01ju"]
+[ext_resource type="Texture2D" uid="uid://dbomgu2qff032" path="res://assets/—Pngtree—wooden stick_5614245.png" id="1_qebmq"]
+[ext_resource type="Script" uid="uid://b58otcwucx341" path="res://scenes/objects/stick/stick.gd" id="2_7alby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f01ju"]
 size = Vector2(27, 34)
@@ -10,13 +10,13 @@ size = Vector2(27, 34)
 
 [node name="Wood" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.02)
-texture = ExtResource("1_msbih")
+texture = ExtResource("1_qebmq")
 
 [node name="Area2D" type="Area2D" parent="Wood"]
 scale = Vector2(68.9655, 40.827)
 collision_layer = 0
 collision_mask = 56
-script = ExtResource("2_f01ju")
+script = ExtResource("2_7alby")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wood/Area2D"]
 position = Vector2(-3.5, 1)
