@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://nbvt0dordtss"]
+[gd_scene load_steps=6 format=3 uid="uid://nbvt0dordtss"]
 
+[ext_resource type="Script" uid="uid://dxcuv41nlbie7" path="res://scenes/actions/pop_light/pop_light.gd" id="1_0uolx"]
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_ngasw"]
 
 [sub_resource type="Animation" id="Animation_7hvgk"]
@@ -40,6 +41,7 @@ _data = {
 }
 
 [node name="Pop light" type="Node2D"]
+script = ExtResource("1_0uolx")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.0
