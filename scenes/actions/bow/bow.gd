@@ -2,6 +2,7 @@ extends Node2D
 
 @export var arrow_scene: PackedScene
 @export var shoot_offset: Vector2 = Vector2(16, 0)  # Arrow spawn point relative to bow
+@onready var anim = $"Bow sprite w_anim"
 
 func shoot_arrow(target_position: Vector2):
 	var arrow = arrow_scene.instantiate()
@@ -17,5 +18,9 @@ func _process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("click") and ToolManager.current_tool == SignalBus.Tool.BOW:
+		anim.play("bow_shoot")
+
+func _on_bow_sprite_w_anim_animation_finished() -> void:
+		anim.play("bow_static")
 		self.shoot_arrow(get_global_mouse_position())
 		SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)
