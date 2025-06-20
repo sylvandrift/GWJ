@@ -25,25 +25,25 @@ func _ready() -> void:
 			if tile_data == null or tile_data.get_custom_data("walkable") == false:
 				astar_grid.set_point_solid(tile_position)
 	
-func _input(event):
-	if event.is_action_pressed("click") == false:
-		return
+func _unhandled_input(event):
+	if event.is_action_pressed("click") and ToolManager.current_tool == SignalBus.Tool.WALK:
+		var id_path
 		
-	var id_path
-	
-	if is_moving:
-		id_path = astar_grid.get_id_path(
-			tile_map.local_to_map(target_position),
-			tile_map.local_to_map(get_global_mouse_position())
-		)
-	else:
-		id_path = astar_grid.get_id_path(
-			tile_map.local_to_map(global_position),
-			tile_map.local_to_map(get_global_mouse_position())
-		).slice(1)
-	
-	if id_path.is_empty() == false:
-		current_id_path = id_path
+		if is_moving:
+			id_path = astar_grid.get_id_path(
+				tile_map.local_to_map(target_position),
+				tile_map.local_to_map(get_global_mouse_position())
+			)
+		else:
+			id_path = astar_grid.get_id_path(
+				tile_map.local_to_map(global_position),
+				tile_map.local_to_map(get_global_mouse_position())
+			).slice(1)
+		
+		if id_path.is_empty() == false:
+			current_id_path = id_path
+		
+		SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)
 		
 func _physics_process(delta):
 	if current_id_path.is_empty():
@@ -64,4 +64,3 @@ func _physics_process(delta):
 			target_position = tile_map.map_to_local(current_id_path.front())
 		else:
 			is_moving = false
- 

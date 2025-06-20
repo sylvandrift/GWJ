@@ -1,7 +1,7 @@
 extends Node
 
 # Global tool types
-enum Tool { NONE, STICK, LIGHT, SLINGSHOT, WALK }
+enum Tool { NONE, STICK, LIGHT, BOW, WALK }
 enum Upgrade {MULTI_SHOT, MORE_AMMO, BIGGER_LIGHT}
 
 # Signals
