@@ -6967,31 +6967,10 @@ shape = SubResource("RectangleShape2D_85t3v")
 
 [node name="Buttons" type="Node" parent="."]
 
-[node name="Bow" type="Node2D" parent="Buttons"]
-light_mask = 25
-visibility_layer = 25
-position = Vector2(-78, 87)
-
-[node name="Button" type="Button" parent="Buttons/Bow"]
-offset_left = -12.0
-offset_top = -7.0
-offset_right = 45.0
-offset_bottom = 12.0
-theme = SubResource("Theme_623lg")
-text = "Bow"
-script = ExtResource("11_hehv2")
-
-[node name="Buttonlight" type="PointLight2D" parent="Buttons/Bow"]
-position = Vector2(15, 2)
-scale = Vector2(1.5625, 0.520833)
-energy = 3.44
-texture = ExtResource("1_w6i3l")
-texture_scale = 0.15
-
 [node name="Walk" type="Node2D" parent="Buttons"]
 light_mask = 25
 visibility_layer = 25
-position = Vector2(35, 87)
+position = Vector2(-141, 87)
 
 [node name="Button" type="Button" parent="Buttons/Walk"]
 offset_left = -12.0
@@ -7009,10 +6988,52 @@ energy = 3.44
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.15
 
+[node name="Bow" type="Node2D" parent="Buttons"]
+light_mask = 25
+visibility_layer = 25
+position = Vector2(-83, 87)
+
+[node name="Button" type="Button" parent="Buttons/Bow"]
+offset_left = -12.0
+offset_top = -7.0
+offset_right = 45.0
+offset_bottom = 12.0
+theme = SubResource("Theme_623lg")
+text = "Bow"
+script = ExtResource("11_hehv2")
+
+[node name="Buttonlight" type="PointLight2D" parent="Buttons/Bow"]
+position = Vector2(15, 2)
+scale = Vector2(1.5625, 0.520833)
+energy = 3.44
+texture = ExtResource("1_w6i3l")
+texture_scale = 0.15
+
+[node name="Light" type="Node2D" parent="Buttons"]
+light_mask = 25
+visibility_layer = 25
+position = Vector2(3, 88)
+
+[node name="Button" type="Button" parent="Buttons/Light"]
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 17.0
+offset_bottom = 11.0
+theme = SubResource("Theme_623lg")
+text = "Light"
+script = ExtResource("17_8a31v")
+
+[node name="Buttonlight" type="PointLight2D" parent="Buttons/Light"]
+position = Vector2(-14, 2)
+scale = Vector2(1.61458, 0.520833)
+energy = 3.44
+texture = ExtResource("1_w6i3l")
+texture_scale = 0.15
+
 [node name="Stick" type="Node2D" parent="Buttons"]
 light_mask = 25
 visibility_layer = 25
-position = Vector2(-137, 87)
+position = Vector2(33, 87)
 
 [node name="Button" type="Button" parent="Buttons/Stick"]
 offset_left = -12.0
@@ -7030,33 +7051,12 @@ energy = 3.44
 texture = ExtResource("1_w6i3l")
 texture_scale = 0.15
 
-[node name="Light" type="Node2D" parent="Buttons"]
-light_mask = 25
-visibility_layer = 25
-position = Vector2(137, 88)
-
-[node name="Button" type="Button" parent="Buttons/Light"]
-offset_left = -40.0
-offset_top = -8.0
-offset_right = 17.0
-offset_bottom = 11.0
-theme = SubResource("Theme_623lg")
-text = "Pop Light"
-script = ExtResource("17_8a31v")
-
-[node name="Buttonlight" type="PointLight2D" parent="Buttons/Light"]
-position = Vector2(-14, 2)
-scale = Vector2(1.61458, 0.520833)
-energy = 3.44
-texture = ExtResource("1_w6i3l")
-texture_scale = 0.15
-
 [connection signal="area_entered" from="Player/AnimatedSprite2D/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/Bow/Bow sprite w_anim" to="Player/Bow" method="_on_bow_sprite_w_anim_animation_finished"]
 [connection signal="timeout" from="Enemy/Sprite2D/visibility timer" to="Enemy" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
-[connection signal="pressed" from="Buttons/Bow/Button" to="Buttons/Bow/Button" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Walk/Button" to="Buttons/Walk/Button" method="_on_pressed"]
-[connection signal="pressed" from="Buttons/Stick/Button" to="Buttons/Stick/Button" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Bow/Button" to="Buttons/Bow/Button" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Light/Button" to="Buttons/Light/Button" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Stick/Button" to="Buttons/Stick/Button" method="_on_pressed"]

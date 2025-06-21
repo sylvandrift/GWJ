@@ -23,4 +23,4 @@ func _unhandled_input(event):
 func _on_bow_sprite_w_anim_animation_finished() -> void:
 		anim.play("bow_static")
 		self.shoot_arrow(get_global_mouse_position())
-		SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)
+		TurnManager.end_turn()

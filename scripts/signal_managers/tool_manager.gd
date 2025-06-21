@@ -10,3 +10,6 @@ func _ready() -> void:
 func _on_tool_selected(tool: SignalBus.Tool) -> void:
 	current_tool = tool
 	print("ToolManager: current tool set to", tool)
+	
+func _deselect_tool() -> void:
+	SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)

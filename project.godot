@@ -23,6 +23,7 @@ ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoload
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 SignalBus="*res://scripts/signal_managers/signal_bus.gd"
 ToolManager="*res://scripts/signal_managers/tool_manager.gd"
+TurnManager="*res://scripts/signal_managers/turn_manager.gd"
 
 [display]
 
