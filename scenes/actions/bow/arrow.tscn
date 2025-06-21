@@ -7,6 +7,8 @@
 size = Vector2(30, 28)
 
 [node name="Arrow" type="Area2D"]
+collision_layer = 128
+collision_mask = 128
 script = ExtResource("1_hftin")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

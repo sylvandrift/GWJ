@@ -7,6 +7,7 @@ var target_position: Vector2
 var is_moving: bool
 var last_player_tile_position: Vector2i
 var timer
+signal level_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +16,7 @@ func _ready() -> void:
 	astar_grid.cell_size = Vector2(16, 16)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
-	$Sprite2D.visible=false
+	$AnimatedSprite2D.hide()
 	
 	for x in tile_map.get_used_rect().size.x:
 		for y in tile_map.get_used_rect().size.y:
@@ -59,12 +60,21 @@ func _physics_process(delta):
 
 #Making it so when poplight hitbox touches monster hitbox it will become 
 #visible for set time and then invisible again
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("monster found!")
-	$Sprite2D.visible=true
-	$"Sprite2D/visibility timer".start()
-
-
 
 func _on_timer_timeout() -> void:
-	$Sprite2D.visible=false
+	$AnimatedSprite2D.hide()
+
+func _on_light_colision_area_entered(area: Area2D) -> void:
+	print("monster found!")
+	$AnimatedSprite2D.show()
+	$"AnimatedSprite2D/visibility timer".start()
+
+#monster touches player leads to level lost screen
+
+func _on_player_colision_area_entered(area: Area2D) -> void:
+	$AnimatedSprite2D.play("attack")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "attack":
+		level_lost.emit()
+#monster touches stick shows red area

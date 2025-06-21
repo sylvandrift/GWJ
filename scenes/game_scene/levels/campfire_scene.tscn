@@ -1,11 +1,13 @@
-[gd_scene load_steps=27 format=4 uid="uid://lgkcdshwpa8y"]
+[gd_scene load_steps=29 format=4 uid="uid://lgkcdshwpa8y"]
 
 [ext_resource type="Texture2D" uid="uid://bmua8jetpuuuh" path="res://assets/sprout_lands_assets/Tilesets/Grass.png" id="1_7c4mf"]
+[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_ak4gy"]
 [ext_resource type="Texture2D" uid="uid://064achh7g4ot" path="res://assets/sprout_lands_assets/Objects/Basic_Grass_Biom_things.png" id="2_oqptt"]
 [ext_resource type="Texture2D" uid="uid://cmjb0bwpkqqnu" path="res://assets/SimpleCharacter/Girl-Sheet.png" id="3_ak4gy"]
 [ext_resource type="Texture2D" uid="uid://u731cdpnstu0" path="res://assets/CampFireFinished.png" id="4_1hg4s"]
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="5_0px6l"]
 [ext_resource type="Script" uid="uid://dq3v8on6xqyep" path="res://scripts/ui/upgradebox.gd" id="6_oqptt"]
+[ext_resource type="Script" uid="uid://ddd5a2tspa6mc" path="res://scripts/exit/exit.gd" id="8_1hg4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24nf0"]
 texture = ExtResource("1_7c4mf")
@@ -347,6 +349,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak4gy"]
 
 [node name="Campfire Scene" type="Node2D"]
+script = ExtResource("1_ak4gy")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_62iok")
@@ -421,6 +424,7 @@ layout_mode = 2
 text = "Bigger light"
 
 [node name="Exit" type="Area2D" parent="."]
+script = ExtResource("8_1hg4s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(8, -73)
@@ -430,3 +434,5 @@ shape = SubResource("RectangleShape2D_ak4gy")
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button" to="Upgrade buttons/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button2" to="Upgrade buttons/HBoxContainer" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Upgrade buttons/HBoxContainer/Button3" to="Upgrade buttons/HBoxContainer" method="_on_button_3_pressed"]
+[connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
+[connection signal="level_won" from="Exit" to="." method="_on_exit_level_won"]
