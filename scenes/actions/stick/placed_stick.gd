@@ -1,6 +1,10 @@
-extends Area2D
+extends Sprite2D
 
-func _on_area_entered(area: Area2D) -> void:
-	print('stick is broken')
-	#emit_signal("stickbreak")
-	#TODO: This should probably just break if it's entered and not send any signals
+@onready var stick = $"."
+@onready var anim = $AnimationPlayer
+@onready var colision = $Area2D
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("stick broken")

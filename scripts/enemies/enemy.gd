@@ -16,7 +16,7 @@ func _ready() -> void:
 	astar_grid.cell_size = Vector2(16, 16)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
-	$Sprite2D.visible=false
+	$AnimatedSprite2D.hide()
 	
 	for x in tile_map.get_used_rect().size.x:
 		for y in tile_map.get_used_rect().size.y:
@@ -62,14 +62,19 @@ func _physics_process(delta):
 #visible for set time and then invisible again
 
 func _on_timer_timeout() -> void:
-	$Sprite2D.visible=false
+	$AnimatedSprite2D.hide()
 
 func _on_light_colision_area_entered(area: Area2D) -> void:
 	print("monster found!")
-	$Sprite2D.visible=true
-	$"Sprite2D/visibility timer".start()
+	$AnimatedSprite2D.show()
+	$"AnimatedSprite2D/visibility timer".start()
 
 #monster touches player leads to level lost screen
 
 func _on_player_colision_area_entered(area: Area2D) -> void:
-	level_lost.emit()
+	$AnimatedSprite2D.play("attack")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "attack":
+		level_lost.emit()
+#monster touches stick shows red area
