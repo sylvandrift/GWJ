@@ -1,5 +1,5 @@
 extends Node2D
-@onready var tile_map = $"../TileMap"
+@onready var tile_map = $"../Tilemap/Walkable map"
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
