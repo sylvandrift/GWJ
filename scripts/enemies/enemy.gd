@@ -30,6 +30,9 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_position)
 		
 func _physics_process(delta):
+	if TurnManager.current_turn != TurnManager.Turn.MONSTER:
+		return
+		
 	var player_tile_pos = tile_map.local_to_map(player.global_position)
 	
 	if player_tile_pos != last_player_tile_position or current_id_path.is_empty():
@@ -51,6 +54,7 @@ func _physics_process(delta):
 		if global_position.distance_to(target_pos) < 1.0:
 			global_position = target_pos
 			current_id_path.pop_front()
+			TurnManager.end_turn()
  
 
 #Making it so when poplight hitbox touches monster hitbox it will become 

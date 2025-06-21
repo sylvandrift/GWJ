@@ -8,4 +8,4 @@ func _unhandled_input(event):
 		light.global_position = get_global_mouse_position() # Set position
 		print(light.global_position)
 		$AnimationPlayer.play("light")
-		SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)
+		TurnManager.end_turn()

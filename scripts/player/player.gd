@@ -43,7 +43,7 @@ func _unhandled_input(event):
 		if id_path.is_empty() == false:
 			current_id_path = id_path
 		
-		SignalBus.emit_signal("tool_selected", SignalBus.Tool.NONE)
+		TurnManager.end_turn()
 		
 func _physics_process(delta):
 	if current_id_path.is_empty():
