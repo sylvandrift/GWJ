@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7467mlp3apa6"]
+[gd_scene load_steps=12 format=3 uid="uid://c7467mlp3apa6"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_ais04"]
-[ext_resource type="PackedScene" uid="uid://cnmu4k37qncn8" path="res://addons/maaacks_game_template/examples/scenes/overlaid_menus/pause_menu.tscn" id="2_n6h6s"]
+[ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_n6h6s"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_4qe8j"]
 [ext_resource type="Script" uid="uid://crbo2e4ndbyvk" path="res://addons/maaacks_game_template/extras/scripts/level_list_loader.gd" id="4_dmajs"]
-[ext_resource type="Script" uid="uid://1j7lshgi1fn6" path="res://addons/maaacks_game_template/examples/scripts/level_list_and_state_manager.gd" id="5_p30qb"]
-[ext_resource type="PackedScene" uid="uid://cmefjno2ddk7e" path="res://addons/maaacks_game_template/examples/scenes/overlaid_menus/game_won_menu.tscn" id="6_jgifu"]
-[ext_resource type="PackedScene" uid="uid://bralse0lmn6t3" path="res://addons/maaacks_game_template/examples/scenes/overlaid_menus/level_lost_menu.tscn" id="7_3rxpd"]
-[ext_resource type="PackedScene" uid="uid://cyjcj8mo8x5tk" path="res://addons/maaacks_game_template/examples/scenes/overlaid_menus/level_won_menu.tscn" id="8_ng3lu"]
-[ext_resource type="PackedScene" uid="uid://dbuv0htkikcv4" path="res://addons/maaacks_game_template/examples/scenes/loading_screen/level_loading_screen.tscn" id="9_13vx3"]
-[ext_resource type="Script" uid="uid://tooek7mdq54x" path="res://addons/maaacks_game_template/examples/scenes/game_scene/configurable_sub_viewport.gd" id="10_wpe27"]
+[ext_resource type="AudioStream" uid="uid://jlo1fl878ecx" path="res://music/Untitled main theme.wav" id="4_n6h6s"]
+[ext_resource type="Script" uid="uid://ultbh4wcm8t5" path="res://scripts/core/level_list_and_state_manager.gd" id="5_p30qb"]
+[ext_resource type="PackedScene" uid="uid://4brssbq1ghsw" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/game_won_menu.tscn" id="6_jgifu"]
+[ext_resource type="PackedScene" uid="uid://dkq3nhkmhu4je" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.tscn" id="7_3rxpd"]
+[ext_resource type="PackedScene" uid="uid://y3vtx0e0shv4" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_won_menu.tscn" id="8_ng3lu"]
+[ext_resource type="PackedScene" uid="uid://dn02kotqcawyw" path="res://scenes/loading_screen/level_loading_screen.tscn" id="9_13vx3"]
+[ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="10_wpe27"]
 
 [node name="MainGame" type="Control"]
 layout_mode = 3
@@ -24,17 +25,17 @@ script = ExtResource("1_ais04")
 pause_menu_packed = ExtResource("2_n6h6s")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("3_4qe8j")]
+stream = ExtResource("4_n6h6s")
 
 [node name="LevelListLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
 script = ExtResource("4_dmajs")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
-files = Array[String](["res://scenes/game_scene/levels/Level_2.tscn", "res://scenes/game_scene/levels/campfire_scene.tscn", "res://scenes/game_scene/levels/level_1.tscn"])
-directory = "res://scenes/game_scene/levels"
+files = Array[String](["res://scenes/game_scene/levels/level_1.tscn", "res://scenes/game_scene/levels/campfire_scene.tscn", "res://scenes/game_scene/levels/Level_2.tscn"])
 
 [node name="LevelListManager" type="Node" parent="." node_paths=PackedStringArray("level_list_loader")]
 script = ExtResource("5_p30qb")
 level_list_loader = NodePath("../LevelListLoader")
-main_menu_scene = "uid://c63y6b25bs4bk"
+main_menu_scene = "uid://c78vtc8cg3qo8"
 ending_scene = "res://addons/maaacks_game_template/examples/scenes/end_credits/end_credits.tscn"
 game_won_scene = ExtResource("6_jgifu")
 level_lost_scene = ExtResource("7_3rxpd")

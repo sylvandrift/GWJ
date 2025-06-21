@@ -1,5 +1,6 @@
-[gd_scene load_steps=91 format=4 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=92 format=4 uid="uid://cnpss81rdulih"]
 
+[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_0b6gl"]
 [ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://chge8ysc0g6qp" path="res://assets/ForgottenMemories/TileSet.png" id="2_h6ldy"]
 [ext_resource type="Script" uid="uid://b2hsd31i3badr" path="res://scripts/player/player.gd" id="2_w6i3l"]
@@ -6706,7 +6707,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmabn"]
-size = Vector2(6, 14)
+size = Vector2(17, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85t3v"]
 radius = 16.0312
@@ -6811,7 +6812,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmabn"]
-radius = 16.0312
+radius = 17.8045
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmabn"]
 atlas = ExtResource("7_bsimd")
@@ -6828,6 +6829,7 @@ Button/font_sizes/font_size = 6
 Button/fonts/font = ExtResource("6_8avtb")
 
 [node name="ScoutsLevel1" type="Node2D"]
+script = ExtResource("1_0b6gl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 2)
@@ -6881,7 +6883,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/Area2D"]
-position = Vector2(-5, 13)
+position = Vector2(-3.5, 10)
 shape = SubResource("RectangleShape2D_fmabn")
 
 [node name="Character light" type="PointLight2D" parent="Player"]
@@ -6948,11 +6950,19 @@ texture = SubResource("AtlasTexture_fmabn")
 wait_time = 3.0
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="Enemy"]
+[node name="light colision" type="Area2D" parent="Enemy"]
 collision_layer = 56
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/light colision"]
+position = Vector2(-2, 6)
+shape = SubResource("RectangleShape2D_pmyid")
+
+[node name="player colision" type="Area2D" parent="Enemy"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/player colision"]
 position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_pmyid")
 
@@ -7053,9 +7063,12 @@ texture_scale = 0.15
 
 [connection signal="area_entered" from="Player/AnimatedSprite2D/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/Bow/Bow sprite w_anim" to="Player/Bow" method="_on_bow_sprite_w_anim_animation_finished"]
+[connection signal="level_lost" from="Enemy" to="." method="_on_enemy_level_lost"]
 [connection signal="timeout" from="Enemy/Sprite2D/visibility timer" to="Enemy" method="_on_timer_timeout"]
-[connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Enemy/light colision" to="Enemy" method="_on_light_colision_area_entered"]
+[connection signal="area_entered" from="Enemy/player colision" to="Enemy" method="_on_player_colision_area_entered"]
 [connection signal="area_entered" from="Exit" to="Exit" method="_on_area_entered"]
+[connection signal="level_won" from="Exit" to="." method="_on_exit_level_won"]
 [connection signal="pressed" from="Buttons/Walk/Button" to="Buttons/Walk/Button" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Bow/Button" to="Buttons/Bow/Button" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Light/Button" to="Buttons/Light/Button" method="_on_pressed"]

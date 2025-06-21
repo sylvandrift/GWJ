@@ -7,6 +7,7 @@ var target_position: Vector2
 var is_moving: bool
 var last_player_tile_position: Vector2i
 var timer
+signal level_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,12 +60,16 @@ func _physics_process(delta):
 
 #Making it so when poplight hitbox touches monster hitbox it will become 
 #visible for set time and then invisible again
-func _on_area_2d_area_entered(area: Area2D) -> void:
+
+func _on_timer_timeout() -> void:
+	$Sprite2D.visible=false
+
+func _on_light_colision_area_entered(area: Area2D) -> void:
 	print("monster found!")
 	$Sprite2D.visible=true
 	$"Sprite2D/visibility timer".start()
 
+#monster touches player leads to level lost screen
 
-
-func _on_timer_timeout() -> void:
-	$Sprite2D.visible=false
+func _on_player_colision_area_entered(area: Area2D) -> void:
+	level_lost.emit()
