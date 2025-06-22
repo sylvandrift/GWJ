@@ -9,7 +9,7 @@ var is_moving: bool
 func _ready() -> void:
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = tile_map.get_used_rect()
-	astar_grid.cell_size = Vector2(16, 16)
+	astar_grid.cell_size = Vector2(32, 32)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
 	
@@ -40,17 +40,30 @@ func _unhandled_input(event):
 				tile_map.local_to_map(get_global_mouse_position())
 			).slice(1)
 		
-		if id_path.is_empty() == false:
-			current_id_path = id_path
-		
-		TurnManager.end_turn()
+		if id_path.size() > 0:
+			current_id_path = id_path if EnemyManager.enemies.is_empty() else ([id_path[0]] as Array[Vector2i])
+
 		
 func _physics_process(delta):
 	if current_id_path.is_empty():
 		return
 		
 	if is_moving == false:
+		
 		target_position = tile_map.map_to_local(current_id_path.front())
+		var movement_delta = target_position - global_position
+
+		if abs(movement_delta.x) > abs(movement_delta.y):
+			if movement_delta.x > 0:
+				print("Player is walking right")
+			else:
+				print("Player is walking left")
+		else:
+			if movement_delta.y > 0:
+				print("Player is walking down")
+			else:
+				print("Player is walking up")
+
 		is_moving = true
 		
 	var target_position = tile_map.map_to_local(current_id_path.front())
@@ -59,8 +72,6 @@ func _physics_process(delta):
 	
 	if global_position == target_position:
 		current_id_path.pop_front()
-		
-		if current_id_path.is_empty() == false:
-			target_position = tile_map.map_to_local(current_id_path.front())
-		else:
-			is_moving = false
+		is_moving = false
+		if not EnemyManager.enemies.is_empty():
+			TurnManager.end_turn()

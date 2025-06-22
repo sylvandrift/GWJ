@@ -6,7 +6,7 @@ extends Node2D
 
 func shoot_arrow(target_position: Vector2):
 	var arrow = arrow_scene.instantiate()
-	get_tree().current_scene.add_child(arrow)
+	get_parent().add_child(arrow)
 
 	var dir = (target_position - global_position).normalized()
 	arrow.global_position = global_position + dir * shoot_offset.length()
