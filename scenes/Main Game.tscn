@@ -30,13 +30,13 @@ stream = ExtResource("4_n6h6s")
 [node name="LevelListLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
 script = ExtResource("4_dmajs")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
-files = Array[String](["res://scenes/game_scene/levels/level_1.tscn", "res://scenes/game_scene/levels/campfire_scene.tscn", "res://scenes/game_scene/levels/Level_2.tscn"])
+files = Array[String](["res://scenes/game_scene/levels/level_1.tscn", "res://scenes/game_scene/levels/level_2.tscn", "res://scenes/game_scene/levels/level_3.tscn"])
 
 [node name="LevelListManager" type="Node" parent="." node_paths=PackedStringArray("level_list_loader")]
 script = ExtResource("5_p30qb")
 level_list_loader = NodePath("../LevelListLoader")
 main_menu_scene = "uid://c78vtc8cg3qo8"
-ending_scene = "res://addons/maaacks_game_template/examples/scenes/end_credits/end_credits.tscn"
+ending_scene = "uid://b2tqk64gy4pht"
 game_won_scene = ExtResource("6_jgifu")
 level_lost_scene = ExtResource("7_3rxpd")
 level_won_scene = ExtResource("8_ng3lu")
