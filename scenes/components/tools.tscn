@@ -1,0 +1,131 @@
+[gd_scene load_steps=12 format=3 uid="uid://74aflpb4fsli"]
+
+[ext_resource type="Script" uid="uid://dxcuv41nlbie7" path="res://scenes/actions/pop_light/pop_light.gd" id="1_05kja"]
+[ext_resource type="Texture2D" uid="uid://0g3bt4uqca4m" path="res://assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="2_xb73x"]
+[ext_resource type="Script" uid="uid://dr4nnefhb4xgm" path="res://scenes/actions/stick/stick.gd" id="3_0mhyn"]
+[ext_resource type="PackedScene" uid="uid://cdohj2yhpb2cx" path="res://scenes/actions/stick/stick.tscn" id="4_t7om0"]
+
+[sub_resource type="Animation" id="Animation_bsimd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pmyid"]
+resource_name = "light"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99, 1.99, 2.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.75, 0.75, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmabn"]
+_data = {
+&"RESET": SubResource("Animation_bsimd"),
+&"light": SubResource("Animation_pmyid")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmabn"]
+radius = 17.8045
+
+[sub_resource type="Animation" id="Animation_1auul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wood/alert/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d43mn"]
+resource_name = "alert"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wood/alert/PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.51, 2.51, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkaae"]
+_data = {
+&"RESET": SubResource("Animation_1auul"),
+&"alert": SubResource("Animation_d43mn")
+}
+
+[node name="Tools" type="Node2D"]
+
+[node name="Light" type="Node2D" parent="."]
+script = ExtResource("1_05kja")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Light"]
+root_node = NodePath("../PointLight2D")
+libraries = {
+&"": SubResource("AnimationLibrary_fmabn")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(-213, 46)
+energy = 0.0
+texture = ExtResource("2_xb73x")
+texture_scale = 0.13
+
+[node name="Area2D" type="Area2D" parent="Light/PointLight2D"]
+position = Vector2(-30, -5)
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light/PointLight2D/Area2D"]
+shape = SubResource("CircleShape2D_fmabn")
+
+[node name="Stick" type="Node2D" parent="."]
+script = ExtResource("3_0mhyn")
+
+[node name="Wood" parent="Stick" instance=ExtResource("4_t7om0")]
+position = Vector2(-210, -43)
+
+[node name="alert" type="AnimationPlayer" parent="Stick/Wood"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_mkaae")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="Stick/Wood/alert"]
+position = Vector2(-199.726, -40.9984)
+scale = Vector2(0.315063, 0.244598)
+color = Color(1, 0, 0, 1)
+energy = 0.0
+texture = ExtResource("2_xb73x")
+offset = Vector2(-40, 150)
+
+[connection signal="collision" from="Stick/Wood" to="Stick" method="_on_wood_collision"]
+[connection signal="animation_finished" from="Stick/Wood/alert" to="Stick" method="_on_alert_animation_finished"]

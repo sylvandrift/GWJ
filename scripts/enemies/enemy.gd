@@ -11,9 +11,10 @@ signal level_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	EnemyManager.register_enemy(self)
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = tile_map.get_used_rect()
-	astar_grid.cell_size = Vector2(16, 16)
+	astar_grid.cell_size = Vector2(32, 32)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
 	$AnimatedSprite2D.hide()
@@ -55,7 +56,7 @@ func _physics_process(delta):
 		if global_position.distance_to(target_pos) < 1.0:
 			global_position = target_pos
 			current_id_path.pop_front()
-			TurnManager.end_turn()
+			EnemyManager.notify_enemy_finished()
  
 
 #Making it so when poplight hitbox touches monster hitbox it will become 

@@ -9,6 +9,9 @@ func start_turn(turn: Turn):
 	current_turn = turn
 	emit_signal("turn_changed", turn)
 
+	if turn == Turn.MONSTER:
+		EnemyManager.start_monster_turn()
+
 func end_turn():
 	if current_turn == Turn.PLAYER:
 		ToolManager._deselect_tool()
