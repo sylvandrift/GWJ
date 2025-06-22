@@ -3,8 +3,9 @@
 Design and developing by Protteus
 Design and developing by SylvanDrift
 Music by Omar
-Ideas by Hannah
-Ideas by Ruby
+Ideas by Ultragrl
+Writing and Ideas by Hannah
+
 ### Godot Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/icon.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  

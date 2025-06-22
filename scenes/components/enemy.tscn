@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://cwrsy546uc7ck"]
+[gd_scene load_steps=54 format=3 uid="uid://cwrsy546uc7ck"]
 
 [ext_resource type="Script" uid="uid://bsnvlbbpf3p01" path="res://scripts/enemies/enemy.gd" id="1_7rgl3"]
 [ext_resource type="Texture2D" uid="uid://c0yr4bff4q11q" path="res://assets/Monster/Shadow Entity Sprite Sheet 1.1.png" id="2_d750v"]
+[ext_resource type="Script" uid="uid://ie4srqg6fp7s" path="res://scenes/components/player_colision.gd" id="3_d750v"]
 [ext_resource type="Script" uid="uid://ljy75eqihg2w" path="res://scripts/enemies/kill_enemy.gd" id="3_mmeu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_am5sw"]
@@ -387,8 +388,9 @@ shape = SubResource("RectangleShape2D_pmyid")
 
 [node name="player colision" type="Area2D" parent="."]
 visible = false
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
+script = ExtResource("3_d750v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player colision"]
 position = Vector2(-2, 6)
@@ -406,9 +408,11 @@ position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_pmyid")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="player colision" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="arrow colision" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AnimatedSprite2D/visibility timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="stick colision" to="." method="_on_stick_colision_area_entered"]
 [connection signal="area_entered" from="light colision" to="." method="_on_light_colision_area_entered"]
 [connection signal="area_entered" from="player colision" to="." method="_on_player_colision_area_entered"]
+[connection signal="area_entered" from="player colision" to="player colision" method="_on_area_entered"]
 [connection signal="area_entered" from="arrow colision" to="arrow colision" method="_on_area_entered"]

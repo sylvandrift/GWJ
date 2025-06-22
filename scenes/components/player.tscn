@@ -446,7 +446,7 @@ frame_progress = 0.926072
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(2, -9)
-collision_layer = 2
+collision_layer = 34
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
@@ -459,8 +459,8 @@ texture_scale = 0.13
 
 [node name="Area2D" type="Area2D" parent="Character light"]
 visible = false
-collision_layer = 8
-collision_mask = 8
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character light/Area2D"]
 shape = SubResource("CircleShape2D_85t3v")

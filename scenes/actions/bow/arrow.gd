@@ -8,5 +8,6 @@ func _physics_process(delta):
 	position += direction * speed * delta
 
 
+
 func _on_area_entered(area: Area2D) -> void:
 	kill_enemy.emit()

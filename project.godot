@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GWJ"
+config/name="Are you afraid of the dark?"
+config/description="Shadow monsters have taken you camp leader and its up to you to use you scout training to save them."
 run/main_scene="uid://daasfxbq45yow"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
@@ -29,6 +30,7 @@ EnemyManager="*res://scripts/signal_managers/enemy_manager.gd"
 [display]
 
 window/stretch/mode="viewport"
+window/description="Shadow monsters have taken you camp leader and its up to you to use you scout training to save them"
 
 [editor_plugins]
 

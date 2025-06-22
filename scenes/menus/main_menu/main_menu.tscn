@@ -12,4 +12,4 @@ options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_peecx")
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "GWJ"
+text = "Are you afraid of the dark?"

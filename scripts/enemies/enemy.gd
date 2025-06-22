@@ -60,7 +60,7 @@ func _physics_process(delta):
 			
 			if randi() % 3 == 0:
 				print("A monster has left a footprint")
-        
+		
 			EnemyManager.notify_enemy_finished()
  
 
