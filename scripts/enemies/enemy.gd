@@ -11,6 +11,7 @@ signal level_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	EnemyManager.register_enemy(self)
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = tile_map.get_used_rect()
@@ -56,6 +57,10 @@ func _physics_process(delta):
 		if global_position.distance_to(target_pos) < 1.0:
 			global_position = target_pos
 			current_id_path.pop_front()
+			
+			if randi() % 3 == 0:
+				print("A monster has left a footprint")
+        
 			EnemyManager.notify_enemy_finished()
  
 

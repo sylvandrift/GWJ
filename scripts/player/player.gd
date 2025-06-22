@@ -73,5 +73,4 @@ func _physics_process(delta):
 	if global_position == target_position:
 		current_id_path.pop_front()
 		is_moving = false
-		if not EnemyManager.enemies.is_empty():
-			TurnManager.end_turn()
+		TurnManager.end_turn()
